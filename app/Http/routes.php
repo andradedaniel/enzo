@@ -22,7 +22,6 @@ Route::resource('/contas', 'ContaBancariaController');
 
 
 
-
 //Route::get('/', 'SocioController@listarSocios');
 Route::get('/oi', ['as'=>'hello',function () {
       //return url('foo');
