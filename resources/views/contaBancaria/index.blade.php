@@ -35,17 +35,21 @@
               <td>
                 <a href="{{ route('contas.show',$conta->id) }}"><span class="glyphicon glyphicon-search"></span></a>
                 <a href="{{ route('contas.edit',$conta->id) }}"><span class="glyphicon glyphicon-edit"></a>
-                <form action="{{ route('contas.destroy', $conta->id) }}" method="POST" >
+                {{-- <form action="{{ route('contas.destroy', $conta->id) }}" method="POST" >
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="submit" value="remove">
-                </form>
-                {{-- <a href="{{ route('contas.show',[$conta->id,'aaa']) }}">delete</a> --}}
+                </form> --}}
               </td>
             </tr>
+            <tr>
+                <td  colspan="5">DESCRIÇÃO DOS DETALHES DA CONTA BANCARIA!!</td>
+            </tr>
+
         @endforeach
       </tbody>
     </table>
+    {!!$contas->render()!!}
     <h4>
         <span class="label label-danger pull-right">
             Nome da conta com menos de 5 caracteres

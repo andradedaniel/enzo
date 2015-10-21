@@ -20,7 +20,7 @@ class ContaBancariaController extends Controller
     public function index()
     {
         //$contas = DB::select('select * from conta_bancaria');
-        $contas = ContaBancaria::all(); //paginate(3);
+        $contas = ContaBancaria::paginate(3);
         // $contas = ContaBancaria::where('nome_banco','like','banco%')->get();
         // $contas = ContaBancaria::findOrFail(2);
          return view('contaBancaria.index',['contas'=>$contas]);

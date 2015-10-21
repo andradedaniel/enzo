@@ -4,7 +4,7 @@
         <title>EnzoSystem - @yield('title')</title>
     </head>
     <body>
-        <div class="container">
+        <div class="container" id="enzoApp">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -30,5 +30,8 @@
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/vue.min.js"></script>
+        <script src="js/vue-resource.min.js"></script>
+        <script src="js/app.js"></script>
     </body>
 </html>

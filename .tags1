@@ -4,18 +4,3 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-ContaBancariaController	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^class ContaBancariaController extends Controller$/;"	class	line:11
-index	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^    public function index()$/;"	function	line:20
-contas	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^        $contas = ContaBancaria::paginate(3);$/;"	variable	line:23
-contas	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^        \/\/ $contas = ContaBancaria::where('nome_banco','like','banco%')->get();$/;"	variable	line:24
-contas	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^        \/\/ $contas = ContaBancaria::findOrFail(2);$/;"	variable	line:25
-create	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^    public function create()$/;"	function	line:34
-store	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^    public function store(ContaBancariaRequest $request)$/;"	function	line:45
-conta	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^        $conta = new contaBancaria;$/;"	variable	line:47
-show	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^    public function show($id)$/;"	function	line:62
-conta	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^        $conta = ContaBancaria::find($id);$/;"	variable	line:65
-edit	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^    public function edit($id)$/;"	function	line:75
-conta	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^        $conta = ContaBancaria::find($id);$/;"	variable	line:77
-update	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^    public function update(ContaBancariaRequest $request, $id)$/;"	function	line:88
-conta	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^        $conta = ContaBancaria::find($id);$/;"	variable	line:90
-destroy	/Users/daniel/Sites/teste/app/Http/Controllers/ContaBancariaController.php	/^    public function destroy($id)$/;"	function	line:101
