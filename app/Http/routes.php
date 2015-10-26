@@ -11,14 +11,13 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', ['as'=>'index',function () {
+    return view('layout');
+}]);
 
-
-// Route::get('/contas', 'ContaBancariaController@index');
 Route::resource('/contas', 'ContaBancariaController');
-
+Route::resource('/investidor', 'InvestidorController');
+Route::resource('/aporte-financeiro', 'AporteFinanceiroController');
 
 
 

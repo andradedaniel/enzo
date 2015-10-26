@@ -1,14 +1,9 @@
 @extends('layout')
 
-@section('title', 'Mostrar Conta Bancaria')
-
-@section('sidebar')
-    @parent
-
-@endsection
-
 @section('content')
-<h1>Mostrando Dados da Conta Bancaria</h1>
+
+@section('page-header', 'Contas Bancarias')
+@section('page-header-desc', 'Detalhes da Conta Bancária')
   {{-- <form> --}}
     {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
     @if(empty($conta))

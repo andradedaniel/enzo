@@ -1,14 +1,10 @@
 @extends('layout')
 
-@section('title', 'Mostrar Conta Bancaria')
-
-@section('sidebar')
-    @parent
-
-@endsection
-
 @section('content')
-<h1>Editar Conta Bancaria</h1>
+
+@section('page-header', 'Contas Bancarias')
+@section('page-header-desc', 'Editar Conta Bancária')
+
 @include('errors.validate_form')
 {{-- {!! Form::open(['route'=>'contas.update',$conta->id]) !!} --}}
   <form action="{{ route('contas.update',$conta->id) }}" method="POST">

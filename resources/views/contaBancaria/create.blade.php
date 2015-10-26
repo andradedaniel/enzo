@@ -1,9 +1,10 @@
 @extends('layout')
 
-@section('title', 'Cadastrar Conta Bancaria')
-
 @section('content')
-<h1>Cadastrar Conta Bancaria</h1>
+
+@section('page-header', 'Contas Bancarias')
+@section('page-header-desc', 'Cadastrar Conta Bancária')
+
 @include('errors.validate_form')
     {!! Form::open(['route'=>'contas.store']) !!}
         <div class="form-group">
