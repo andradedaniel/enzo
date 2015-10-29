@@ -18,7 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/css/AdminLTE.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
@@ -257,7 +257,7 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="{{ route('index') }}"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
+        <li><a href="{{ route('index') }}/"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li> {{-- Colocado uma barra depois de route(index) para que o cod javascript funcione para setar a class active--}}
         <li><a href="{{ route('investidor.index') }}"><i class="fa fa-users"></i> <span>Investidores</span></a></li>
         <li><a href="{{ route('aporte-financeiro.index') }}"><i class="fa fa-money"></i> <span>Aportes Financeiros</span></a></li>
         <li><a href="{{ route('contas.index') }}"><i class="fa fa-university"></i> <span>Contas Bancárias</span></a></li>
@@ -294,7 +294,7 @@ desired effect
 
       <!-- Your Page Content Here -->
       @section('content')
-        Bem-vindo!!! =)
+
       @show
     </section>
     <!-- /.content -->
@@ -396,6 +396,8 @@ desired effect
 <script src="/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/js/adminlte.min.js"></script>
+
+<script src="/js/app.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

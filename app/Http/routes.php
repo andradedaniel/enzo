@@ -12,7 +12,7 @@
 */
 
 Route::get('/', ['as'=>'index',function () {
-    return view('layout');
+    return view('dashboard.index');
 }]);
 
 Route::resource('/contas', 'ContaBancariaController');

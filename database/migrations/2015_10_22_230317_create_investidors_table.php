@@ -16,6 +16,7 @@ class CreateInvestidorsTable extends Migration
             $table->increments('id');
             $table->string('nome',50);
             $table->string('email',100)->unique();
+            $table->string('password', 60);
             $table->decimal('investimento_inicial',8,2);
             $table->string('foto_path')->nullable();
             $table->timestamps();
