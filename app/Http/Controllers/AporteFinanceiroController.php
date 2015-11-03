@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\AporteFinanceiro;
+use App\Investidor;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class AporteFinanceiroController extends Controller
 {
@@ -28,7 +30,8 @@ class AporteFinanceiroController extends Controller
      */
     public function create()
     {
-        //
+        $investidores = Investidor::orderBy('nome')->get(['id','nome']);
+        return view ('aporteFinanceiro.create',['investidores'=>$investidores]);
     }
 
     /**
@@ -39,7 +42,14 @@ class AporteFinanceiroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aporte = new AporteFinanceiro;
+        $aporte->valor = $request->valor;
+        $aporte->data = Carbon::now();//createFromFormat('d-m-Y', $request->data)->toDateString();
+        $aporte->comprovante_path = $request->comprovante;
+        $aporte->observacao = $request->observacao;
+        $aporte->investidor_id = $request->investidor_id;
+
+        dd($aporte);
     }
 
     /**

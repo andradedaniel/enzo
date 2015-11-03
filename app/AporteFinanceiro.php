@@ -8,6 +8,11 @@ class AporteFinanceiro extends Model
 {
     protected $fillable = ['valor','observacao','invetidor_id'];
 
+    public function getValorAttribute($value)
+    {
+        return number_format($value,2,',','.');
+    }
+
     public function investidor()
     {
         return $this->belongsTo('App\Investidor');

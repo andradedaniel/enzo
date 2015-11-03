@@ -8,13 +8,13 @@
 @else
     @section('page-header', 'Aportes Financeiros')
 
-    <a href="{{ route('contas.create') }}">Cadastrar Aporte Financeiro</a>
+    <a href="{{ route('aporte-financeiro.create') }}" class="btn btn-primary">Adicionar Aporte Financeiro</a>
     @if (session('status'))
        <div class="alert alert-success">
            {{ session('status') }}
        </div>
     @endif
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>#</th>
@@ -30,11 +30,9 @@
         @foreach ($aportes as $aporte)
             <tr>
               <td>{{ $aporte->id }}</td>
-              <td>
-                  <img src="/img/user7-128x128.jpg" class="img-circle" style="width: 25px;height: 25px;" alt="User Image">
-                    {{ $aporte->investidor->nome }}</td>
+              <td>{{ $aporte->investidor->nome }}</td>
               <td>R$ {{ $aporte->valor }}</td>
-              <td>{{ 'xx/xx/xxxx' }}</td>
+              <td>{{ $aporte->data }}</td>
               <td>{{ $aporte->observacao }}</td>
               <td>
                 <a href="{{ route('contas.show',$aporte->id) }}"><span class="glyphicon glyphicon-search"></span></a>

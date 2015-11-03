@@ -22,11 +22,6 @@ class InvestidorController extends Controller
             $investidor->total_investido = $investidor->aportesFinanceiro()->sum('valor');
             // print($investidor);
         }
-        // $aportesFinanceiros = Investidor::with('aporteFinanceiro')->get();
-        // dd($aportesFinanceiros->toArray());
-        // foreach ($aportesFinanceiros as $key) {
-        //     echo $aportesFinanceiros->aporteFinanceiro->observacao;
-        // }
 
         return view ('investidor.index',['investidores'=>$investidores]);
     }

@@ -13,6 +13,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Bootstrap 3.3.5 -->
   {{-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> --}}
   <link rel="stylesheet" href="/css/app.css">
+  <!-- Datapicker -->
+  <link rel="stylesheet" href="/css/datepicker3.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -396,6 +398,9 @@ desired effect
 <script src="/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/js/adminlte.min.js"></script>
+<!-- DataPicker -->
+<script src="/js/bootstrap-datepicker.js"></script>
+<script src="/js/bootstrap-datepicker.pt-BR.js"></script>
 
 <script src="/js/app.js"></script>
 

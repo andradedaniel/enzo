@@ -4,3 +4,8 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+AporteFinanceirosTableSeeder	/Users/daniel/Sites/teste/database/seeds/AporteFinanceirosTableSeeder.php	/^class AporteFinanceirosTableSeeder extends Seeder$/;"	class	line:5
+run	/Users/daniel/Sites/teste/database/seeds/AporteFinanceirosTableSeeder.php	/^    public function run()$/;"	function	line:12
+idDaniel	/Users/daniel/Sites/teste/database/seeds/AporteFinanceirosTableSeeder.php	/^        $idDaniel= DB::table('investidors')->where('nome', '=', 'Daniel')->select('id')->first();$/;"	variable	line:16
+idRocha	/Users/daniel/Sites/teste/database/seeds/AporteFinanceirosTableSeeder.php	/^        $idRocha=DB::table('investidors')->where('nome', '=', 'Rocha')->select('id')->first();$/;"	variable	line:17
+idEvander	/Users/daniel/Sites/teste/database/seeds/AporteFinanceirosTableSeeder.php	/^        $idEvander=DB::table('investidors')->where('nome', '=', 'Evander`')->select('id')->first();$/;"	variable	line:18

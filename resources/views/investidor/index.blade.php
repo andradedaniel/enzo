@@ -7,12 +7,12 @@
             Não existem investidores cadastrados.
         </div>
     @endif
-    <div id="buttons" style="padding:10px">
+    {{-- <div id="buttons" style="padding:10px"> --}}
 
         <a href="{{ route('investidor.create') }}" class="btn btn-primary">
             {{-- <div style="font-size:140%;display: inline;"><i class="ion-person-add"></i></div> --}}
              Cadastrar Investidor</a>
-    </div>
+    {{-- </div> --}}
 
     <table class="table table-hover">
       <thead>
@@ -29,7 +29,10 @@
         @foreach ($investidores as $investidor)
             <tr id="row_id_{{$investidor->id }}" onclick="showInvestidorDetalhes(this)" onmouseover="this.style.cursor='pointer'" >
               <td>{{ $investidor->id }}</td>
-              <td>{{ $investidor->nome }}</td>
+              <td>
+                  <img src="/img/user7-128x128.jpg" class="img-circle" style="width: 25px;height: 25px;" alt="User Image">
+                  {{ $investidor->nome }}
+              </td>
               <td>{{ $investidor->email }}</td>
               <td><span class="label label-success">R$ {{ $investidor->total_investido }}</span></td>
               <td>
