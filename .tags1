@@ -4,8 +4,22 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-AporteFinanceirosTableSeeder	/Users/daniel/Sites/teste/database/seeds/AporteFinanceirosTableSeeder.php	/^class AporteFinanceirosTableSeeder extends Seeder$/;"	class	line:5
-run	/Users/daniel/Sites/teste/database/seeds/AporteFinanceirosTableSeeder.php	/^    public function run()$/;"	function	line:12
-idDaniel	/Users/daniel/Sites/teste/database/seeds/AporteFinanceirosTableSeeder.php	/^        $idDaniel= DB::table('investidors')->where('nome', '=', 'Daniel')->select('id')->first();$/;"	variable	line:16
-idRocha	/Users/daniel/Sites/teste/database/seeds/AporteFinanceirosTableSeeder.php	/^        $idRocha=DB::table('investidors')->where('nome', '=', 'Rocha')->select('id')->first();$/;"	variable	line:17
-idEvander	/Users/daniel/Sites/teste/database/seeds/AporteFinanceirosTableSeeder.php	/^        $idEvander=DB::table('investidors')->where('nome', '=', 'Evander`')->select('id')->first();$/;"	variable	line:18
+AporteFinanceiroController	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^class AporteFinanceiroController extends Controller$/;"	class	line:15
+index	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^    public function index()$/;"	function	line:22
+aportes	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^        $aportes = AporteFinanceiro::with('investidor')->get();$/;"	variable	line:24
+totalDeAportes	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^        $totalDeAportes = AporteFinanceiro::sum('valor');$/;"	variable	line:25
+create	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^    public function create()$/;"	function	line:34
+investidores	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^        $investidores = Investidor::orderBy('nome')->get(['id','nome']);$/;"	variable	line:36
+store	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^    public function store(Request $request)$/;"	function	line:46
+aporte	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^        $aporte = new AporteFinanceiro;$/;"	variable	line:49
+file	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^        $file = $request->file('comprovante');$/;"	variable	line:54
+extension	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^        $extension = $file->getClientOriginalExtension();$/;"	variable	line:55
+path	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^        $path = 'comprovante_aporte\/';$/;"	variable	line:56
+newFilename	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^        $newFilename =  $path.$/;"	variable	line:57
+upload	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^        $upload = Storage::disk('local')->put($newFilename, file_get_contents($file->getRealPath()));$/;"	variable	line:74
+show	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^    public function show($id)$/;"	function	line:88
+mime	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^        $mime = File::mimeType(storage_path('app\/comprovante_aporte\/'.$id));$/;"	variable	line:90
+contents	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^        $contents = Storage::get('comprovante_aporte\/'.$id);$/;"	variable	line:91
+edit	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^    public function edit($id)$/;"	function	line:103
+update	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^    public function update(Request $request, $id)$/;"	function	line:115
+destroy	/Users/daniel/Sites/teste/app/Http/Controllers/AporteFinanceiroController.php	/^    public function destroy($id)$/;"	function	line:126

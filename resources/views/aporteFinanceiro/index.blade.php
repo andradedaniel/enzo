@@ -10,9 +10,10 @@
 
     <a href="{{ route('aporte-financeiro.create') }}" class="btn btn-primary">Adicionar Aporte Financeiro</a>
     @if (session('status'))
-       <div class="alert alert-success">
-           {{ session('status') }}
-       </div>
+        <div class="alert alert-success alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Fechar"><span aria-hidden="true">×</span></button>
+            {{ session('status') }}
+        </div>
     @endif
     <table class="table table-hover">
       <thead>
@@ -21,6 +22,7 @@
           <th>Investidor</th>
           <th>Valor</th>
           <th>Data</th>
+          <th>Comprovante</th>
           <th>Observação</th>
           <th>actions</th>
         </tr>
@@ -33,9 +35,10 @@
               <td>{{ $aporte->investidor->nome }}</td>
               <td>R$ {{ $aporte->valor }}</td>
               <td>{{ $aporte->data }}</td>
+              <td>{{ $aporte->comprovante_path }}</td>
               <td>{{ $aporte->observacao }}</td>
               <td>
-                <a href="{{ route('contas.show',$aporte->id) }}"><span class="glyphicon glyphicon-search"></span></a>
+                <a href="{{ route('aporte-financeiro.show','_333300_2015-11-04.png') }}"><span class="glyphicon glyphicon-search"></span></a>
                 <a href="{{ route('contas.edit',$aporte->id) }}"><span class="glyphicon glyphicon-edit"></a>
                 <form action="{{ route('contas.destroy', $aporte->id) }}" method="POST" >
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -51,10 +54,11 @@
             </tr> --}}
 
         @endforeach
-            <tr class=".hover">
+            <tr class="hover">
                 <td></td>
+                <td><b>TOTAL</b></td>
+                <td><b>R$ {{$totalDeAportes}}</b></td>
                 <td></td>
-                <td>R$ {{$totalDeAportes}}</td>
                 <td></td>
                 <td></td>
                 <td></td>

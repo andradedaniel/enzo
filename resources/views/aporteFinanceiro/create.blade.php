@@ -10,7 +10,7 @@
 
 <div class="box">
     <!-- form start -->
-    <form action="{{ route('aporte-financeiro.store') }}" method="post" role="form">
+    <form action="{{ route('aporte-financeiro.store') }}" method="post" enctype="multipart/form-data" role="form">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="box-body">
             <div class="form-group">
