@@ -1,6 +1,10 @@
 @extends('layout')
 
 @section('content')
+
+
+
+
 @if(empty($aportes))
     <div class="alert alert-danger">
         Ainda não há nenhum aporte financeiro cadastrado.
@@ -38,21 +42,17 @@
               <td>{{ $aporte->comprovante_path }}</td>
               <td>{{ $aporte->observacao }}</td>
               <td>
-                <a href="{{ route('aporte-financeiro.show','_333300_2015-11-04.png') }}"><span class="glyphicon glyphicon-search"></span></a>
-                <a href="{{ route('contas.edit',$aporte->id) }}"><span class="glyphicon glyphicon-edit"></a>
-                <form action="{{ route('contas.destroy', $aporte->id) }}" method="POST" >
+                <a href="" data-toggle="modal" data-whatever="{{$aporte->comprovante_path}}" data-target="#myModal"><span class="glyphicon glyphicon-search"></span></a>
+                <a href="{{ route('aporte-financeiro.edit',$aporte->id) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                <form style="display:inline-block;" action="{{ route('aporte-financeiro.destroy', $aporte->id) }}" id="aporte_delete_form" method="POST" >
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="_method" value="DELETE">
-                    {{-- <input type="submit" value="remove">
-                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                    </button> --}}
+                    <a href="javascript:$('#aporte_delete_form').submit()" id="aporte_delete_button"><span class="glyphicon glyphicon-trash"></span></a>
+                    {{-- <label for="mySubmit" class="btn"><a><i class="glyphicon glyphicon-edit"></i></a></label>
+                    <input id="mySubmit" type="submit" value="Go" class="hidden" /> --}}
                 </form>
               </td>
             </tr>
-            {{-- <tr>
-                <td  colspan="5">DESCRIÇÃO DOS DETALHES DA CONTA BANCARIA!!</td>
-            </tr> --}}
-
         @endforeach
             <tr class="hover">
                 <td></td>
@@ -67,4 +67,19 @@
     </table>
 
 @endif
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+              <input type="hidden" value="{{ route('aporte-financeiro.show','') }}">
+              <img src="" class="img-responsive"></img>
+          </div>
+        </div>
+      </div>
+    </div>
+
 @endsection

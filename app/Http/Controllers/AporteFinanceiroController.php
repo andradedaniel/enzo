@@ -54,8 +54,7 @@ class AporteFinanceiroController extends Controller
         $file = $request->file('comprovante');
         $extension = $file->getClientOriginalExtension();
         $path = 'comprovante_aporte/';
-        $newFilename =  $path.
-                        $aporte->investidor_id.'_'.
+        $newFilename =  $request->investidor_id.'_'.
                         str_replace(['.',','],'',$aporte->valor).'_'.
                         $aporte->data.'.'.
                         $extension;
@@ -71,9 +70,21 @@ class AporteFinanceiroController extends Controller
             return '[ERRO] Diretorio sem permissão de escrita.';
         }
 
-        $upload = Storage::disk('local')->put($newFilename, file_get_contents($file->getRealPath()));
+
+        $upload = Storage::disk('local')->put($path.$newFilename, file_get_contents($file->getRealPath()));
+
+        // // apos fazer o upload do arquivo
+        // DB::beginTransaction();
+        // try {
+        //     // salva no BD
+        // } catch (err $e) {
+        //     //deleta o arquivo q foi upado
+        //     //rollback no BD
+        // }
+        // DB::commit();
+
         if( ! $upload)
-            return 'errro';
+            return 'erro';
 
         $aporte->save();
         return redirect()->route('aporte-financeiro.index')->with('status',"Aporte financeiro cadastrado com sucesso!");
@@ -88,6 +99,10 @@ class AporteFinanceiroController extends Controller
     public function show($id)
     {
         $mime = File::mimeType(storage_path('app/comprovante_aporte/'.$id));
+        if (Storage::exists('app/comprovante_aporte/'.$id))
+        {
+            return 'Arquivo não encontrado';
+        }
         $contents = Storage::get('comprovante_aporte/'.$id);
         return (new Response($contents, 200))
               ->header('Content-Type', 'image/png');
@@ -102,7 +117,7 @@ class AporteFinanceiroController extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'Funçao ainda não implementada!';
     }
 
     /**
@@ -125,6 +140,6 @@ class AporteFinanceiroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return 'Funçao ainda não implementada!';
     }
 }

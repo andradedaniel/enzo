@@ -18,7 +18,7 @@ class CreateAporteFinanceirosTable extends Migration
             $table->increments('id');
             $table->decimal('valor',8,2);
             $table->date('data');
-            $table->string('comprovante_path',100)->nullable();
+            $table->string('comprovante_filename',50)->nullable();
             $table->text('observacao',8,2)->nullable();
             $table->integer('investidor_id')->unsigned();
             $table->foreign('investidor_id')->references('id')->on('investidors');
