@@ -17,19 +17,11 @@ $('.datepicker').datepicker({
     // forceParse: false
 })
 
-/* @TODO está sempre marcando o dashboard. Bolar um jeito pra excluir ele do IF
-    trecho retirado do proprio demo do AdminLTE. estudar ele pra ver o q faz
-    var d = $(this)
-    var f = d.parents("ul").first()
-    var h = d.parent("li");
-    f.find("li.active").removeClass("active"), h.addClass("active")
-*/
+// "Seleciona" o menu lateral que foi selecionado baseado na URL
 $(function() {
-    // var pgurl = window.location.href.substr(7); //remove o http://
-    // var pgurl = pgurl.substr(pgurl.indexOf("/")+1);
-     var pgurl = window.location.href;//.substr(window.location.href.lastIndexOf("/")+1);
+     var pgurl = window.location.href;
      $(".sidebar-menu li a").each(function(){
-          if(pgurl.indexOf($(this).attr("href")) > -1)
+          if( pgurl == $(this).attr("href"))
             $(this).parent().addClass("active");
      })
 });
