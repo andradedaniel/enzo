@@ -60,7 +60,6 @@ class AporteFinanceiroController extends Controller
                         .'_'.str_random(2) //codigo aleatorio para casos onde pode existir arquivo com o mesmo nome
                         .'.'.$extension;
 
-
         // Cria o objeto com os dados do request
         $aporte = new AporteFinanceiro;
         $aporte->valor = $request->valor;
@@ -69,28 +68,18 @@ class AporteFinanceiroController extends Controller
         $aporte->observacao = $request->observacao;
         $aporte->investidor_id = $request->investidor_id;
 
-//        // Verifica se o diretório permite escrita
-//        if ( ! File::isWritable(storage_path('app/'.$path)) )
-//        {
-//            //@TODO tratar este retorno para que nao dê crash no sistema, apenas apresente a msg na tela
-//            return '[ERRO] Diretorio sem permissão de escrita.';
-//        }
-//
-//
-//        $upload = Storage::disk('local')->put($path.$newFilename, file_get_contents($file->getRealPath()));
         $upload = new UploadFile();
-        $x=$upload->upload($path,$newFilename,$file);
-        dd($x['cod']);
+        $retornoUpload = $upload->upload($path,$newFilename,$file);
+        if ($retornoUpload['cod'] == 0)
+            return redirect()->back()->with('status',$retornoUpload['msg']);
 
-        if ($upload->upload($path,$newFilename,$file))
-        {
-            // se deu certo o upload do comprovante, salva no banco o "aporte financeiro"
-            try {
-                $aporte->save();
-            } catch (Exception $e) {
-                $upload->deleteFile(); //se deu erro ao salvar no banco, tem q apagar o arquivo q foi upado
-                var_dump($e->getMessage());
-            }
+        // se deu certo o upload do comprovante, salva no banco o "aporte financeiro"
+        try {
+            $aporte->save();
+        } catch (Exception $e) {
+            $upload->deleteFile(); //se deu erro ao salvar no banco, tem q apagar o arquivo q foi upado
+            var_dump($e->getMessage());
+            //@TODO confirmar se o catch interrompe a execuçao do codigo
         }
 
         return redirect()->route('aporte-financeiro.index')->with('status',"Aporte financeiro cadastrado com sucesso!");

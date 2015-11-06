@@ -3,8 +3,6 @@
 @section('content')
 
 
-
-
 @if(empty($aportes))
     <div class="alert alert-danger">
         Ainda não há nenhum aporte financeiro cadastrado.

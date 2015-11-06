@@ -18,13 +18,22 @@ $('.datepicker').datepicker({
 })
 
 // "Seleciona" o menu lateral que foi selecionado baseado na URL
+// @TODO quando tem http://server.app/funcao/metodo nao está funcionando 
 $(function() {
-     var pgurl = window.location.href;
+    var path = window.location.pathname;
      $(".sidebar-menu li a").each(function(){
-          if( pgurl == $(this).attr("href"))
+        // alert('url='+url+"\n"
+        //     +'pgurl='+pgurl+"\n"
+        //     +'href='+$(this).attr("href")+'\n')
+        if(location.origin+'/' == $(this).attr("href") && $(this).attr("href") == document.URL)
+            $(this).parent().addClass("active");
+         if(location.pathname != '/' && $(this).attr("href").indexOf(location.pathname) > -1) //location.pathname.substring(1,location.pathname.lastIndexOf('/'))
+//           if( pgurl == $(this).attr("href"))
             $(this).parent().addClass("active");
      })
 });
+
+
 
 function showInvestidorDetalhes(elem)
 {

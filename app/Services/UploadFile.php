@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Facades\Storagerage;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
 class UploadFile
@@ -20,14 +20,12 @@ class UploadFile
     public function upload($path,$filename,$file)
     {
         // Verifica se o diretório permite escrita
-        if ( ! File::isWritable(storage_path('appp/'.$path)) )
-        {
-            //@TODO tratar este retorno para que nao dê crash no sistema, apenas apresente a msg na tela
-            return ['cod'=>'1','msg'=>'[ERRO] Diretorio sem permissão de escrita.'];
-        }
+        if ( ! File::isWritable(storage_path('app/'.$path)) )
+            return ['cod'=>'0','msg'=>'[ERRO] Diretorio sem permissão de escrita.'];
+        if ( Storage::exists('app/'.$path.'/'.$filename))
+            return ['cod'=>'0','msg'=>'[ERRO] Já existe um arquivo com este nome.'];
 
-
-        $upload = Storage::disk('local')->put($path.$newFilename, file_get_contents($file->getRealPath()));
+        return Storage::disk('local')->put($path.$filename, file_get_contents($file->getRealPath()));
     }
 
     public function download()
