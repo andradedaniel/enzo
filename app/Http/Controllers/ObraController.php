@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Obra;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -48,7 +49,10 @@ class ObraController extends Controller
      */
     public function show($id)
     {
-        //
+        $obra = Obra::find($id);
+        $obra->investidores()->get();
+//        dd($obra);
+        return view('obra.show',['obra'=>$obra]);
     }
 
     /**

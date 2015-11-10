@@ -13,6 +13,6 @@ class Investidor extends Model
 
     public function obras()
     {
-        return $this->belongsToMany('App\Obra');
+        return $this->belongsToMany('App\Obra')->withPivot('percentual_lucro');
     }
 }

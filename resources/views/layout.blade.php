@@ -265,7 +265,7 @@ desired effect
         <li class="treeview">
           <a href="#"><i class="fa fa-home"></i> <span>Obras</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
-            <li><a href="#">Obra 01</a></li>
+            <li><a href="{{ route('obra.show','1') }}">Obra 01</a></li>
             <li><a href="#">Obra 02</a></li>
           </ul>
         </li>
