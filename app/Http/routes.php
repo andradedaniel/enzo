@@ -18,6 +18,7 @@ Route::get('/', ['as'=>'index',function () {
 Route::resource('/contas', 'ContaBancariaController');
 Route::resource('/investidor', 'InvestidorController');
 Route::resource('/aporte-financeiro', 'AporteFinanceiroController');
+Route::resource('/obra', 'ObraController');
 
 
 

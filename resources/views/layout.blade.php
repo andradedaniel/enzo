@@ -262,15 +262,16 @@ desired effect
         <li><a href="{{ route('index') }}/"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li> {{-- Colocado uma barra depois de route(index) para que o cod javascript funcione para setar a class active--}}
         <li><a href="{{ route('investidor.index') }}"><i class="fa fa-users"></i> <span>Investidores</span></a></li>
         <li><a href="{{ route('aporte-financeiro.index') }}"><i class="fa fa-money"></i> <span>Aportes Financeiros</span></a></li>
-        <li><a href="{{ route('contas.index') }}"><i class="fa fa-university"></i> <span>Contas Bancárias</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <a href="#"><i class="fa fa-home"></i> <span>Obras</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
+            <li><a href="#">Obra 01</a></li>
+            <li><a href="#">Obra 02</a></li>
           </ul>
         </li>
+        <li><a href="{{ route('contas.index') }}"><i class="fa fa-university"></i> <span>Contas Bancárias</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+
       </ul>
       <!-- /.sidebar-menu -->
     </section>

@@ -17,12 +17,14 @@ class InvestidorController extends Controller
     public function index()
     {
         $investidores = Investidor::with('aportesFinanceiro')->get();
+        $obras = Investidor::with('obras')->get();
+        // dd($obras);
         foreach ($investidores as $investidor) {
             // print_r( $investidor->id);
             $investidor->total_investido = $investidor->aportesFinanceiro()->sum('valor');
-            // print($investidor);
+            $investidor->obras = $investidor->obras()->get();
+            // print($inv);
         }
-
         return view ('investidor.index',['investidores'=>$investidores]);
     }
 

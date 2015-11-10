@@ -52,6 +52,9 @@
                     @foreach($investidor->aportesFinanceiro as $aporte)
                         <li>{{$aporte->observacao . ' | '.$aporte->valor }}</li>
                     @endforeach
+                    @foreach($investidor->obras as $obra)
+                        <li>{{$obra->identificacao . ' | ' }}</li>
+                    @endforeach
                 </td>
             </tr>
 

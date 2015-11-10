@@ -10,4 +10,9 @@ class Investidor extends Model
     {
         return $this->hasMany('App\AporteFinanceiro');
     }
+
+    public function obras()
+    {
+        return $this->belongsToMany('App\Obra');
+    }
 }
