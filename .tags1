@@ -4,3 +4,13 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+InvestidorController	/Users/daniel/Sites/teste/app/Http/Controllers/InvestidorController.php	/^class InvestidorController extends Controller$/;"	class	line:10
+index	/Users/daniel/Sites/teste/app/Http/Controllers/InvestidorController.php	/^    public function index()$/;"	function	line:17
+investidores	/Users/daniel/Sites/teste/app/Http/Controllers/InvestidorController.php	/^        \/\/ $investidores = Investidor::all();$/;"	variable	line:19
+investidores	/Users/daniel/Sites/teste/app/Http/Controllers/InvestidorController.php	/^        $investidores = Investidor::with('aportesFinanceiro','obras')->get();$/;"	variable	line:20
+create	/Users/daniel/Sites/teste/app/Http/Controllers/InvestidorController.php	/^    public function create()$/;"	function	line:35
+store	/Users/daniel/Sites/teste/app/Http/Controllers/InvestidorController.php	/^    public function store(Request $request)$/;"	function	line:46
+show	/Users/daniel/Sites/teste/app/Http/Controllers/InvestidorController.php	/^    public function show($id)$/;"	function	line:57
+edit	/Users/daniel/Sites/teste/app/Http/Controllers/InvestidorController.php	/^    public function edit($id)$/;"	function	line:68
+update	/Users/daniel/Sites/teste/app/Http/Controllers/InvestidorController.php	/^    public function update(Request $request, $id)$/;"	function	line:80
+destroy	/Users/daniel/Sites/teste/app/Http/Controllers/InvestidorController.php	/^    public function destroy($id)$/;"	function	line:91
