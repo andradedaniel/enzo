@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    @section('page-header', 'Investidores')
+    @section('page-header', "<i class='fa fa-users'></i>&nbsp;&nbsp;Investidores")
     @if(empty($investidores))
         <div class="alert alert-danger">
             Não existem investidores cadastrados.

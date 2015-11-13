@@ -8,7 +8,7 @@
         Ainda não há nenhum aporte financeiro cadastrado.
     </div>
 @else
-    @section('page-header', 'Aportes Financeiros')
+    @section('page-header', "<i class='fa fa-money'></i>&nbsp;&nbsp;Aportes Financeiros")
 
     <a href="{{ route('aporte-financeiro.create') }}" class="btn btn-primary">Adicionar Aporte Financeiro</a>
     @if (session('status'))
