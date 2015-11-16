@@ -37,18 +37,58 @@
             </div>
         @endforeach
         </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Outras despesas</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                    </div><!-- /.box-header -->
+                    <div class="box-body table-responsive no-padding">
+                      <table class="table table-hover">
+                        <tbody><tr>
+                          <th>#</th>
+                          <th>Tipo</th>
+                          <th>Descrição</th>
+                          <th>Data</th>
+                          <th>Valor</th>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>Imposto</td>
+                          <td>Autorizaçao para construção</td>
+                          <td>20/04/2014</td>
+                          <td>R$ 230,00</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Imposto</td>
+                          <td>Habite-se</td>
+                          <td>12/03/2014</td>
+                          <td>R$ 456,33</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Propina</td>
+                          <td>Agilisar processo de venda</td>
+                          <td>21/06/2014</td>
+                          <td>R$ 1000,00</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Marketing</td>
+                          <td>Impressão de panfletos</td>
+                          <td>02/05/2014</td>
+                          <td>R$ 60,00</td>
+                        </tr>
+                      </tbody></table>
+                    </div>
+                </div><!-- /.box -->
+            </div>
+        </div>
 
-        <div class="box box-default">
-            <div class="box-header with-border">
-                <h3 class="box-title">Outras despesas</h3>
-                <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                </div><!-- /.box-tools -->
-            </div><!-- /.box-header -->
-            <div class="box-body">
-                The body of the box
-            </div><!-- /.box-body -->
-        </div><!-- /.box -->
         <div class="box box-default">
             <div class="box-header with-border">
                 <h3 class="box-title">Despesas com materiais</h3>
