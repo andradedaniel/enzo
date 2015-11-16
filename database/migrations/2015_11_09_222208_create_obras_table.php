@@ -18,9 +18,9 @@ class CreateObrasTable extends Migration
             $table->string('endereco',100)->nullable();
             $table->date('data_inicio')->nullable();
             $table->date('data_previsao_fim')->nullable();
-            $table->decimal('valor_alvo_venda',8,2)->nullable();
-            $table->decimal('total_despesas',8,2)->nullable(); //temporaria
-            $table->decimal('valor_venda',8,2)->nullable(); //temporaria
+            $table->decimal('valor_alvo_venda',9,2)->nullable();
+            $table->decimal('total_despesas',9,2)->nullable(); //temporaria
+            $table->decimal('valor_venda',9,2)->nullable(); //temporaria
             $table->timestamps();
             $table->softDeletes();
         });

@@ -30,6 +30,6 @@ class CreateInvestidorsObrasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('investidor_obra');
     }
 }

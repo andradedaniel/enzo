@@ -10,4 +10,9 @@ class Obra extends Model
     {
         return $this->belongsToMany('App\Investidor')->withPivot('percentual_lucro');
     }
+
+    public function outrasDespesas()
+    {
+        return ;
+    }
 }

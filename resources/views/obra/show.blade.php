@@ -15,7 +15,7 @@
         <h4>Lucro obtido por cada investidor</h4>
         <div class="row">
         @foreach($obra->investidores as $investidor)
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-3 col-xs-6">
                 <div class="info-box bg-aqua">
                 <span class="info-box-icon">
                     <img src="/img/user7-128x128.jpg"  style="margin-top:-10px;width: 90px;height: 90px;" alt="User Image">
@@ -23,7 +23,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">{{ $investidor->nome }}</span>
-                        <span class="info-box-number">R$  {!! $obra->valor_venda ? number_format(($obra->valor_venda-$obra->total_despesas)*($investidor->pivot->percentual_lucro/100),2,',','.') : '0,00'!!}</span>
+                        <span class="info-box-number">R$ {!! $obra->valor_venda ? number_format(($obra->valor_venda-$obra->total_despesas)*($investidor->pivot->percentual_lucro/100),2,',','.') : '0,00'!!}</span>
 
                         <div class="progress">
                             <div class="progress-bar" style="width:{{ $investidor->pivot->percentual_lucro }}%"></div>
@@ -37,11 +37,37 @@
             </div>
         @endforeach
         </div>
+
+
+        <div class="row">
+            <div class="col-md-3 col-xs-6">
+                Endereço: {{ $obra->endereco }}<br>
+                Data Inicios: {{ $obra->data_inicio }}<br>
+                Data Previsão Fim: {{ $obra->data_previsao_fim }}<br>
+                {{$obra->valor_venda}}
+            </div>
+            <div class="col-md-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3>R$ {{ $obra->total_despesas }}</h3>
+                        <p>Total de Despesas</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-social-usd"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
         <div class="row">
             <div class="col-xs-12">
-                <div class="box">
+                <div class="box box-solid box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Outras despesas</h3>
+                        <h3 class="box-title">Outras despesas</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="btn btn-warning btn-flat "><b>R$ 33.000,00</b></span>
                         <div class="box-tools pull-right">
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                         </div><!-- /.box-tools -->
@@ -89,9 +115,10 @@
             </div>
         </div>
 
-        <div class="box box-default">
+        <div class="box box-solid box-default">
             <div class="box-header with-border">
-                <h3 class="box-title">Despesas com materiais</h3>
+                <h3 class="box-title">Despesas com materiais</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="btn btn-warning btn-flat "><b>R$ 95.000,00</b></span>
                 <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 </div><!-- /.box-tools -->
@@ -104,13 +131,9 @@
 
 
 
-        <br><br><br><br><br><br><br><br>
+
 <div>
-        Endereço: {{ $obra->endereco }}<br>
-        Data Inicios: {{ $obra->data_inicio }}<br>
-        Data Previsão Fim: {{ $obra->data_previsao_fim }}<br>
-        Total de Despesas: {{ $obra->total_despesas }}<br>
-        {!! $obra->valor_venda ? "<h1>VENDIDO -> R$ ".$obra->valor_venda."</h1><br>" : ''!!}
+
 </div>
         <br><br><br>
         <a href="{{ URL::previous() }}">Voltar</a>
