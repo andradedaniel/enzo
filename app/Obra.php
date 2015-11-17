@@ -13,6 +13,6 @@ class Obra extends Model
 
     public function outrasDespesas()
     {
-        return ;
+        return $this->hasMany('App\ObraOutraDespesa');
     }
 }

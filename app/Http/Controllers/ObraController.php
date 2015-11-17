@@ -51,8 +51,14 @@ class ObraController extends Controller
     {
         $obra = Obra::find($id);
         $obra->investidores()->get();
-//        dd($obra);
-        return view('obra.show',['obra'=>$obra]);
+        $obra->outrasDespesas()->get();
+        $totalObra=0;
+        foreach ($obra->outrasDespesas as $key) {
+            // var_dump($key);
+            $totalObra += $key->valor;
+        }
+    //    dd($obra->outrasDespesas);
+        return view('obra.show',['obra'=>$obra,'totalObra'=>$totalObra]);
     }
 
     /**

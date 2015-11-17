@@ -19,6 +19,7 @@ class CreateObrasOutrasDespesasTable extends Migration
             $table->integer('obra_tipo_outras_despesas_id')->unsigned();
             $table->foreign('obra_tipo_outras_despesas_id')->references('id')->on('obra_tipo_outras_despesas');
             $table->string('descricao',255)->nullable();
+            $table->date('data');
             $table->decimal('valor',8,2);
             $table->timestamps();
             $table->softDeletes();
