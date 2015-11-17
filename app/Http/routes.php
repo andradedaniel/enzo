@@ -11,21 +11,9 @@
 |
 */
 
-Route::get('/', ['as'=>'index',function () {
-    return view('dashboard.index');
-}]);
+Route::get('/', ['as'=>'index', 'uses' => 'DashboardController@index']);
 
 Route::resource('/contas', 'ContaBancariaController');
 Route::resource('/investidor', 'InvestidorController');
 Route::resource('/aporte-financeiro', 'AporteFinanceiroController');
 Route::resource('/obra', 'ObraController');
-
-
-
-//Route::get('/', 'SocioController@listarSocios');
-Route::get('/oi', ['as'=>'hello',function () {
-      //return url('foo');
-}]);
-Route::get('/oi/{nome}', function ($nome) {
-    return 'Paramentro digitado: '.$nome;
-});

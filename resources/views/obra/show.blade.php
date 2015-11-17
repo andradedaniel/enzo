@@ -12,7 +12,7 @@
         </div>
     @else
         @section('page-header', "<i class='fa fa-home'></i>&nbsp;&nbsp;Detalhes da Obra <b>$obra->identificacao </b>")
-        @if($obra->valor_venda)
+        @if($obra->valor_venda > 0)
             <div class="row">
                 <div class="col-lg-4 col-xs-6">
                     <table class="table-condensed">
@@ -41,7 +41,8 @@
             </div>
         @endif
 
-<div class="alert alert-success bg-olive" role="alert">asdfasdfasdf</div>
+
+{{--<div class="alert alert-success bg-olive" role="alert">asdfasdfasdf</div>--}}
         <div class="row">
             <div class="col-md-3 col-xs-6">
                 Endereço: {{ $obra->endereco }}<br>
@@ -63,8 +64,11 @@
                 </div>
             </div>
         </div>
-
-
+        <div class="pull-right">
+        <a class="btn btn-app"><i class="fa fa-users"></i>Investidores</a>
+        <a class="btn btn-app"><i class="fa fa-edit"></i>Editar</a>
+        <a class="btn btn-app"><i class="fa fa-usd"></i>Vender</a>
+        </div>
         <div class="row">
             <div class="col-xs-12">
                 <div class="box box-solid box-default">

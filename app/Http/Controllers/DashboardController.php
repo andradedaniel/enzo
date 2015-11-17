@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Obra;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\AporteFinanceiro;
 
-class ObraController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,8 @@ class ObraController extends Controller
      */
     public function index()
     {
-        return view('obra.index');
+        $patrimonioTotal = AporteFinanceiro::sum('valor');
+        return view('dashboard.index');
     }
 
     /**
@@ -49,16 +50,7 @@ class ObraController extends Controller
      */
     public function show($id)
     {
-        $obra = Obra::find($id);
-        $obra->investidores()->get();
-        $obra->outrasDespesas()->get();
-        $totalObra=0;
-        foreach ($obra->outrasDespesas as $key) {
-            // var_dump($key);
-            $totalObra += $key->valor;
-        }
-//        dd($obra);
-        return view('obra.show',['obra'=>$obra,'totalObra'=>$totalObra]);
+        //
     }
 
     /**
