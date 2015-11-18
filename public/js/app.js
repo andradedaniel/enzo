@@ -18,7 +18,7 @@ $('.datepicker').datepicker({
 })
 
 // "Seleciona" o menu lateral que foi selecionado baseado na URL
-// @TODO quando tem http://server.app/funcao/metodo nao está funcionando 
+// @TODO quando tem http://server.app/funcao/metodo nao está funcionando
 $(function() {
     var path = window.location.pathname;
      $(".sidebar-menu li a").each(function(){
@@ -38,16 +38,7 @@ $(function() {
     var data = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [
-            {
-                label: "My First dataset",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
-            },
+            
             {
                 label: "My Second dataset",
                 fillColor: "rgba(151,187,205,0.2)",
@@ -61,7 +52,7 @@ $(function() {
         ]
     };
 
-    var myLineChart = new Chart(ctx).Line(data, options);
+    var myLineChart = new Chart(ctx).Line(data);
 
 
 

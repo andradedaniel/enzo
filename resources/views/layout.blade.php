@@ -403,7 +403,7 @@ desired effect
 <script src="/js/bootstrap-datepicker.js"></script>
 <script src="/js/bootstrap-datepicker.pt-BR.js"></script>
 
-<script src="https://cdnjs.com/libraries/chart.js"></script>
+<script src="/js/Chart.min.js"></script>
 <script src="/js/app.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
