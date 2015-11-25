@@ -12,9 +12,24 @@
         </div>
     @else
         @section('page-header', "<i class='fa fa-home'></i>&nbsp;&nbsp;Detalhes da Obra <b>$obra->identificacao </b>")
+<div class="row">
+    <div class="col-lg-1" style="border:1px solid red">1</div>
+    <div class="col-lg-1" style="border:1px solid red">2</div>
+    <div class="col-lg-1" style="border:1px solid red">3</div>
+    <div class="col-lg-1" style="border:1px solid red">4</div>
+    <div class="col-lg-1" style="border:1px solid red">5</div>
+    <div class="col-lg-1" style="border:1px solid red">6</div>
+    <div class="col-lg-1" style="border:1px solid red">7</div>
+    <div class="col-lg-1" style="border:1px solid red">8</div>
+    <div class="col-lg-1" style="border:1px solid red">9</div>
+    <div class="col-lg-1" style="border:1px solid red">10</div>
+    <div class="col-lg-1" style="border:1px solid red">11</div>
+    <div class="col-lg-1" style="border:1px solid red">12</div>
+</div>
+
         @if($obra->valor_venda > 0)
             <div class="row">
-                <div class="col-lg-4 col-xs-6">
+                <div class="col-lg-2 col-lg-offset-3">
                     <table class="table-condensed">
                       <tbody>
                       @foreach($obra->investidores as $investidor)
@@ -24,9 +39,10 @@
                             <td>{{$investidor->pivot->percentual_lucro}}%</td>
                           </tr>
                       @endforeach
-                      </tbody></table>
+                      </tbody>
+                    </table>
                 </div>
-                <div class="col-md-4 col-xs-6">
+                <div class="col-lg-3">
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
@@ -42,15 +58,21 @@
         @endif
 
 
-{{--<div class="alert alert-success bg-olive" role="alert">asdfasdfasdf</div>--}}
         <div class="row">
-            <div class="col-md-3 col-xs-6">
-                Endereço: {{ $obra->endereco }}<br>
-                Data Inicios: {{ $obra->data_inicio }}<br>
-                Data Previsão Fim: {{ $obra->data_previsao_fim }}<br>
-                {{$obra->valor_venda}}
+            <div class="col-lg-3">
+                <dl class="dl-horizontal">
+                    <dt>Endereço</dt>
+                        <dd>{{ $obra->endereco }}</dd>
+                    <dt>Data Inicio</dt>
+                        <dd>{{ $obra->data_inicio }}</dd>
+                    <dt>Data Previsão Fim</dt>
+                        <dd>{{ $obra->data_previsao_fim }}</dd>
+                    <dt>Valor de Venda</dt>
+                        <dd>{{$obra->valor_venda}}</dd>
+
+                </dl>
             </div>
-            <div class="col-md-3 col-xs-6">
+            <div class="col-lg-3">
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
@@ -63,11 +85,12 @@
 
                 </div>
             </div>
+
+        <div class="col-lg-3 pull-right">
+            <a class="btn btn-app"><i class="fa fa-users"></i>Investidores</a>
+            <a class="btn btn-app"><i class="fa fa-edit"></i>Editar</a>
+            <a class="btn btn-app"><i class="fa fa-usd"></i>Vender</a>
         </div>
-        <div class="pull-right">
-        <a class="btn btn-app"><i class="fa fa-users"></i>Investidores</a>
-        <a class="btn btn-app"><i class="fa fa-edit"></i>Editar</a>
-        <a class="btn btn-app"><i class="fa fa-usd"></i>Vender</a>
         </div>
         <div class="row">
             <div class="col-xs-12">
@@ -81,6 +104,7 @@
                     </div><!-- /.box-header -->
                     <div class="box-body table-responsive no-padding">
                       <table class="table table-hover">
+
                         <tbody><tr>
                           <th>#</th>
                           <th>Tipo</th>
