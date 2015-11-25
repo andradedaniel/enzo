@@ -99,8 +99,7 @@ class AporteFinanceiroController extends Controller
             return 'Arquivo não encontrado';
         }
         $contents = Storage::get('comprovante_aporte/'.$id);
-        return (new Response($contents, 200))
-              ->header('Content-Type', 'image/png');
+        return (new Response($contents, 200))->header('Content-Type', 'image/png');
         // dd($contents);
     }
 

@@ -51,9 +51,9 @@ class ObraController extends Controller
     {
         $obra = Obra::find($id);
         $obra->investidores()->get();
-        $obra->outrasDespesas()->get();
+        $obra->despesas()->get();
         $totalObra=0;
-        foreach ($obra->outrasDespesas as $key) {
+        foreach ($obra->despesas as $key) {
             // var_dump($key);
             $totalObra += $key->valor;
         }

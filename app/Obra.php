@@ -11,8 +11,8 @@ class Obra extends Model
         return $this->belongsToMany('App\Investidor')->withPivot('percentual_lucro');
     }
 
-    public function outrasDespesas()
+    public function despesas()
     {
-        return $this->hasMany('App\ObraOutraDespesa');
+        return $this->hasMany('App\ObraDespesa');
     }
 }

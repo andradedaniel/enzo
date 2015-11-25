@@ -76,7 +76,7 @@
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
-                        <h3>R$ {{ $obra->total_despesas }}</h3>
+                        <h3>R$ total despesas</h3>
                         <p>Total de Despesas</p>
                     </div>
                     <div class="icon">
@@ -112,10 +112,10 @@
                           <th>Data</th>
                           <th>Valor</th>
                         </tr>
-                        @foreach($obra->outrasDespesas as $outraDespesa)
+                        @foreach($obra->despesas as $outraDespesa)
                             <tr>
                               <td>{{$outraDespesa->id}}</td>
-                              <td>{{$outraDespesa->tipoOutrasDespesas->descricao}}</td>
+                              <td>{{$outraDespesa->tipoDespesa->descricao}}</td>
                               <td>{{$outraDespesa->descricao}}</td>
                               <td>{{$outraDespesa->data}}</td>
                               <td>R$ {{$outraDespesa->valor}}</td>
