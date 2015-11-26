@@ -29,7 +29,7 @@
 
         @if($obra->valor_venda > 0)
             <div class="row">
-                <div class="col-lg-2 col-lg-offset-3">
+                <div class="col-lg-3 col-lg-offset-3">
                     <table class="table-condensed">
                       <tbody>
                       @foreach($obra->investidores as $investidor)
@@ -72,21 +72,9 @@
 
                 </dl>
             </div>
-            <div class="col-lg-3">
-                <!-- small box -->
-                <div class="small-box bg-red">
-                    <div class="inner">
-                        <h3>R$ total despesas</h3>
-                        <p>Total de Despesas</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-social-usd"></i>
-                    </div>
 
-                </div>
-            </div>
 
-        <div class="col-lg-3 pull-right">
+        <div class="col-lg-4 pull-right">
             <a class="btn btn-app"><i class="fa fa-users"></i>Investidores</a>
             <a class="btn btn-app"><i class="fa fa-edit"></i>Editar</a>
             <a class="btn btn-app"><i class="fa fa-usd"></i>Vender</a>
@@ -96,8 +84,8 @@
             <div class="col-xs-12">
                 <div class="box box-solid box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Outras despesas</h3>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="btn btn-warning btn-flat "><b>R$ {{$totalObra}}</b></span>
+                        <h3 class="box-title">Despesas</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="btn btn-warning btn-flat "><b>R$ {{$totalDespesasObra}}</b></span>
                         <div class="box-tools pull-right">
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                         </div><!-- /.box-tools -->
@@ -107,18 +95,22 @@
 
                         <tbody><tr>
                           <th>#</th>
+                          <th>Data</th>
                           <th>Tipo</th>
                           <th>Descrição</th>
-                          <th>Data</th>
-                          <th>Valor</th>
+                          <th>Qtdade</th>
+                          <th>Valor Unitario</th>
+                          <th>Valor Total</th>
                         </tr>
-                        @foreach($obra->despesas as $outraDespesa)
+                        @foreach($obra->despesas as $despesa)
                             <tr>
-                              <td>{{$outraDespesa->id}}</td>
-                              <td>{{$outraDespesa->tipoDespesa->descricao}}</td>
-                              <td>{{$outraDespesa->descricao}}</td>
-                              <td>{{$outraDespesa->data}}</td>
-                              <td>R$ {{$outraDespesa->valor}}</td>
+                              <td>{{$despesa->id}}</td>
+                              <td>{{$despesa->data}}</td>
+                              <td>{{$despesa->tipoDespesa->descricao}}</td>
+                              <td>{{$despesa->descricao}}</td>
+                              <td>{{$despesa->quantidade}}</td>
+                              <td>R$ {{$despesa->valor_unitario}}</td>
+                              <td>R$ {{$despesa->valor_unitario * $despesa->quantidade}}</td>
                             </tr>
                         @endforeach
                         </tbody></table>
@@ -127,26 +119,7 @@
             </div>
         </div>
 
-        <div class="box box-solid box-default">
-            <div class="box-header with-border">
-                <h3 class="box-title">Despesas com materiais</h3>&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="btn btn-warning btn-flat "><b>R$ 95.000,00</b></span>
-                <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                </div><!-- /.box-tools -->
-            </div><!-- /.box-header -->
-            <div class="box-body">
-                The body of the box
-            </div><!-- /.box-body -->
-        </div><!-- /.box -->
 
-
-
-
-
-<div>
-
-</div>
         <br><br><br>
         <a href="{{ URL::previous() }}">Voltar</a>
         {{-- <a href="{{ route('contas.index') }}">Voltar</a> --}}

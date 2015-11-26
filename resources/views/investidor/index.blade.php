@@ -48,17 +48,70 @@
               </td>
             </tr>
             <tr class="collapse" id="row_id_{{$investidor->id }}_detalhes">
+                <td></td>
                 <td colspan="2">
-                    <table class="table table-condensed">
+                    {{-- <div style="border:1px solid red"> --}}
+                    <table class="table table-condensed" style="background-color:transparent;">
                         <thead>
                           <tr>
-                            <th colspan="2">Aportes Financeiros</th>
+                              <th></th>
+                              <th colspan="2">Aportes Financeiros de {{$investidor->nome}}</th>
                           </tr>
                         </thead>
 
                         <tbody>
                     @foreach($investidor->aportesFinanceiro as $aporte)
                     <tr>
+                        <td></td>
+                    <td>    {{$aporte->data }}</td>
+                    <td>  R$  {{$aporte->valor }}</td>
+                    </tr>
+                    @endforeach
+
+                    </tbody>
+                    </table>
+                    {{-- </div> --}}
+</td>
+<td colspan="2">
+                    {{-- <div style="border:1px solid red"> --}}
+                    <table class="table table-condensed" style="background-color:transparent;">
+                        <thead>
+                          <tr>
+                              <th></th>
+                              <th colspan="2">Aportes Financeiros de {{$investidor->nome}}</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                    @foreach($investidor->aportesFinanceiro as $aporte)
+                    <tr>
+                        <td></td>
+                    <td>    {{$aporte->data }}</td>
+                    <td>  R$  {{$aporte->valor }}</td>
+                    </tr>
+                    @endforeach
+
+                    </tbody>
+                    </table>
+                    {{-- </div> --}}
+
+                </td>
+
+
+                {{-- <td></td>
+                <td>
+                    <table class="table table-condensed" style="background-color:transparent;">
+                        <thead>
+                          <tr>
+                              <th></th>
+                              <th colspan="2">Aportes Financeiros de {{$investidor->nome}}</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                    @foreach($investidor->aportesFinanceiro as $aporte)
+                    <tr>
+                        <td></td>
                     <td>    {{$aporte->data }}</td>
                     <td>  R$  {{$aporte->valor }}</td>
                     </tr>
@@ -66,19 +119,13 @@
 
                     </tbody>
                 </table>
+                </td> --}}
 
-
-
-            </td><td colspan="2">
-                <table>
-                @foreach($investidor->aportesFinanceiro as $aporte)
-                    <li>{{$aporte->observacao . ' | '.$aporte->valor }}</li>
-                @endforeach
-                @foreach($investidor->obras as $obra)
-                    <li>{{$obra->identificacao . ' | ' }}</li>
-                @endforeach
-                </table>
-                </td>
+                {{-- <td colspan="5">
+                    @foreach($investidor->obras as $obra)
+                        <li>{{$obra->identificacao . ' | ' }}</li>
+                    @endforeach
+                </td> --}}
             </tr>
 
         @endforeach

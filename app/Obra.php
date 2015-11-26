@@ -15,4 +15,5 @@ class Obra extends Model
     {
         return $this->hasMany('App\ObraDespesa');
     }
+
 }

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Obra;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Obra;
+use App\ObraDespesa;
+
 
 class ObraController extends Controller
 {
@@ -52,13 +53,14 @@ class ObraController extends Controller
         $obra = Obra::find($id);
         $obra->investidores()->get();
         $obra->despesas()->get();
-        $totalObra=0;
+
+        $totalDespesasObra=0;
         foreach ($obra->despesas as $key) {
             // var_dump($key);
-            $totalObra += $key->valor;
+            $totalDespesasObra += ($key->valor_unitario * $key->quantidade);
         }
-//        dd($obra);
-        return view('obra.show',['obra'=>$obra,'totalObra'=>$totalObra]);
+    //    dd($totalDespesasObra);
+        return view('obra.show',['obra'=>$obra,'totalDespesasObra'=>$totalDespesasObra]);
     }
 
     /**
