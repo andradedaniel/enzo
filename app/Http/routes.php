@@ -17,3 +17,4 @@ Route::resource('/contas', 'ContaBancariaController');
 Route::resource('/investidor', 'InvestidorController');
 Route::resource('/aporte-financeiro', 'AporteFinanceiroController');
 Route::resource('/obra', 'ObraController');
+Route::resource('/despesa', 'DespesaController');

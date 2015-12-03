@@ -71,9 +71,10 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            Comprovante
           </div>
           <div class="modal-body">
-              <input type="hidden" value="{{ route('aporte-financeiro.show','') }}">
+              {{-- <input type="hidden" value="{{ route('aporte-financeiro.show','') }}"> --}}
               <img src="" class="img-responsive"></img>
           </div>
         </div>
