@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\InvestidorRepository;
 use Illuminate\Http\Request;
-use App\Investidor;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class InvestidorController extends Controller
 {
+    private $repository;
+
+    /**
+     * InvestidorController constructor.
+     * @param InvestidorRepository $repository
+     */
+    public function __construct(InvestidorRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +26,8 @@ class InvestidorController extends Controller
      */
     public function index()
     {
-        // $investidores = Investidor::all();
-        $investidores = Investidor::with('aportesFinanceiro','obras')->get();
+        return $investidores = $this->repository->all();
+//        $investidores = Investidor::with('aportesFinanceiro','obras')->get();
         //$obras = Investidor::with('obras')->get();
         // dd($investidores);
         foreach ($investidores as $investidor) {

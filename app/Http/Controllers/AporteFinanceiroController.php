@@ -23,7 +23,8 @@ class AporteFinanceiroController extends Controller
      */
     public function index()
     {
-        $aportes = AporteFinanceiro::with('investidor')->get();
+//        $aportes = AporteFinanceiro::with('investidor')->get();
+        $aportes = AporteFinanceiro::all();//with('investidor')->get();
         $totalDeAportes = AporteFinanceiro::sum('valor');
         return view('aporteFinanceiro.index',['aportes'=>$aportes,'totalDeAportes'=>$totalDeAportes]);
     }
