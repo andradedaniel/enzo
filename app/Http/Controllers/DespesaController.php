@@ -2,23 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\InvestidorRepository;
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
-class InvestidorController extends Controller
+class DespesaController extends Controller
 {
-    private $repository;
-
-    /**
-     * InvestidorController constructor.
-     * @param InvestidorRepository $repository
-     */
-    public function __construct(InvestidorRepository $repository)
-    {
-        $this->repository = $repository;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -26,15 +16,7 @@ class InvestidorController extends Controller
      */
     public function index()
     {
-        return $investidores = $this->repository->all();
-//        $investidores = Investidor::with('aportesFinanceiro','obras')->get();
-        //$obras = Investidor::with('obras')->get();
-        // dd($investidores);
-        foreach ($investidores as $investidor) {
-            $investidor->total_investido = $investidor->aportesFinanceiro()->sum('valor');
-            //$investidor->obras()->get();
-        }
-        return view ('investidor.index',['investidores'=>$investidores]);
+        //
     }
 
     /**
@@ -44,7 +26,9 @@ class InvestidorController extends Controller
      */
     public function create()
     {
-        return view ('investidor.create');
+        $tiposDespesa = ObraTipoDespesa::orderBy('descricao')->get(['id','descricao']);
+        // return view ('despesa.create',['tiposDespesa'=>$tiposDespesa]);
+        return view ('despesa.create',['tiposDespesa'=>$tiposDespesa]);
     }
 
     /**
@@ -55,8 +39,7 @@ class InvestidorController extends Controller
      */
     public function store(Request $request)
     {
-        $this->repository->create($request->all());
-        return redirect()->route('investidor.index');
+        dd($request->xx);
     }
 
     /**
@@ -67,7 +50,7 @@ class InvestidorController extends Controller
      */
     public function show($id)
     {
-        return view ('investidor.show');
+        //
     }
 
     /**
@@ -78,7 +61,7 @@ class InvestidorController extends Controller
      */
     public function edit($id)
     {
-        return view ('investidor.edit');
+        //
     }
 
     /**
@@ -101,6 +84,6 @@ class InvestidorController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+        //
     }
 }

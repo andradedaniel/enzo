@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\AporteFinanceiro;
-use App\Investidor;
+use App\Models\Investidor;
 use App\Http\Requests;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
@@ -23,7 +23,8 @@ class AporteFinanceiroController extends Controller
      */
     public function index()
     {
-        $aportes = AporteFinanceiro::with('investidor')->get();
+//        $aportes = AporteFinanceiro::with('investidor')->get();
+        $aportes = AporteFinanceiro::all();//with('investidor')->get();
         $totalDeAportes = AporteFinanceiro::sum('valor');
         return view('aporteFinanceiro.index',['aportes'=>$aportes,'totalDeAportes'=>$totalDeAportes]);
     }

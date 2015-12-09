@@ -15,7 +15,7 @@ class AporteFinanceiro extends Model
 
     public function investidor()
     {
-        return $this->belongsTo('App\Investidor');
+        return $this->belongsTo('App\Models\Investidor');
     }
 
     // public static function totalDeAportes($investidor=null)

@@ -38,13 +38,14 @@
               <td>
                 <a href="{{ route('contas.show',$investidor->id) }}"><span class="glyphicon glyphicon-search"></span></a>
                 <a href="{{ route('contas.edit',$investidor->id) }}"><span class="glyphicon glyphicon-edit"></a>
-                <form action="{{ route('contas.destroy', $investidor->id) }}" method="POST" >
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="_method" value="DELETE">
-                    {{-- <input type="submit" value="remove"> --}}
-                    {{-- <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
-                    </button> --}}
-                </form>
+
+                  <form class="delete-button" action="{{ route('investidor.destroy', $investidor->id) }}" id="investidorDelete" method="POST" >
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <a href="javascript:$('#investidorDelete').submit()" id="aporteDeleteButton"><span class="glyphicon glyphicon-trash"></span></a>
+                      {{-- <label for="mySubmit" class="btn"><a><i class="glyphicon glyphicon-edit"></i></a></label>
+                      <input id="mySubmit" type="submit" value="Go" class="hidden" /> --}}
+                  </form>
               </td>
             </tr>
             <tr class="collapse" id="row_id_{{$investidor->id }}_detalhes">

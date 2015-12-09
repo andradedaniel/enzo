@@ -1,5 +1,5 @@
 @extends('layout')
-
+@include('despesa.create')
 @section('content')
 
 
@@ -12,6 +12,9 @@
         </div>
     @else
         @section('page-header', "<i class='fa fa-home'></i>&nbsp;&nbsp;Detalhes da Obra <b>$obra->identificacao </b>")
+
+
+
 <div class="row">
     <div class="col-lg-1" style="border:1px solid red">1</div>
     <div class="col-lg-1" style="border:1px solid red">2</div>
@@ -26,6 +29,9 @@
     <div class="col-lg-1" style="border:1px solid red">11</div>
     <div class="col-lg-1" style="border:1px solid red">12</div>
 </div>
+
+
+
 
         @if($obra->valor_venda > 0)
             <div class="row">
@@ -55,11 +61,21 @@
                     </div>
                 </div>
             </div>
+        @else
+            <div class="col-lg-4 pull-right">
+                <a class="btn btn-app"><i class="fa fa-users"></i>Investidores</a>
+                <a class="btn btn-app"><i class="fa fa-edit"></i>Editar</a>
+                <a class="btn btn-app"><i class="fa fa-usd"></i>Vender</a>
+                {{-- <a class="btn btn-primary" href="{{ route('despesa.create',['idObra'=>$obra->id]) }}">Adicionar Despesa</a> --}}
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDespesaCreate">
+                    Adicionar Despesa
+                </button>
+
+            </div>
         @endif
 
-
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-6">
                 <dl class="dl-horizontal">
                     <dt>Endereço</dt>
                         <dd>{{ $obra->endereco }}</dd>
@@ -72,20 +88,12 @@
 
                 </dl>
             </div>
-
-
-        <div class="col-lg-4 pull-right">
-            <a class="btn btn-app"><i class="fa fa-users"></i>Investidores</a>
-            <a class="btn btn-app"><i class="fa fa-edit"></i>Editar</a>
-            <a class="btn btn-app"><i class="fa fa-usd"></i>Vender</a>
-        </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <div class="box box-solid box-default">
                     <div class="box-header with-border">
                         <h3 class="box-title">Despesas</h3>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="btn btn-warning btn-flat "><b>R$ {{$totalDespesasObra}}</b></span>
                         <div class="box-tools pull-right">
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                         </div><!-- /.box-tools -->
@@ -115,6 +123,9 @@
                         @endforeach
                         </tbody></table>
                     </div>
+                    <div class="box-footer">
+                        <h3><b>TOTAL: R$ {{$totalDespesasObra}}</b></h3>
+                    </div><!-- box-footer -->
                 </div><!-- /.box -->
             </div>
         </div>
