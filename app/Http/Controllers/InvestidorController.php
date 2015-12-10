@@ -3,20 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\InvestidorRepository;
+use App\Services\InvestidorService;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
 class InvestidorController extends Controller
 {
     private $repository;
+    /**
+     * @var InvestidorService
+     */
+    private $service;
 
     /**
      * InvestidorController constructor.
      * @param InvestidorRepository $repository
+     * @param InvestidorService $service
      */
-    public function __construct(InvestidorRepository $repository)
+    public function __construct(InvestidorRepository $repository, InvestidorService $service)
     {
         $this->repository = $repository;
+        $this->service = $service;
     }
 
     /**
@@ -55,8 +62,9 @@ class InvestidorController extends Controller
      */
     public function store(Request $request)
     {
-        $this->repository->create($request->all());
-        return redirect()->route('investidor.index');
+        return $this->service->store($request->all());
+
+        return redirect()->route('investidor.create')->with($x);
     }
 
     /**

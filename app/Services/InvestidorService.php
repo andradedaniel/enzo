@@ -9,6 +9,9 @@
 namespace App\Services;
 
 use App\Repositories\InvestidorRepository;
+use App\Validators\InvestidorValidator;
+use Illuminate\Support\Facades\Response;
+use Prettus\Validator\Exceptions\ValidatorException;
 
 class InvestidorService
 {
@@ -16,22 +19,41 @@ class InvestidorService
      * @var InvestidorRepository
      */
     protected $repository;
+    /**
+     * @var InvestidorValidator
+     */
+    private $validator;
 
     /**
      * @param InvestidorRepository $repository
+     * @param InvestidorValidator $validator
      */
-    public function __construct(InvestidorRepository $repository)
+    public function __construct(InvestidorRepository $repository, InvestidorValidator $validator)
     {
         $this->repository = $repository;
+        $this->validator = $validator;
     }
 
     /**
      * @param array $data
-     * @return mixed
+     * @return Response
      */
-    public function create(array $data)
+    public function store(array $data)
     {
-        return $this->repository->create($data);
+        try{
+            $this->validator->with($data)->passesOrFail();
+            $investidor = $this->repository->create($data);
+
+            return response()->json([
+                'message'=>'Investidor cadastrado com sucesso',
+                'data'=>$investidor->toArray()
+            ]);
+        } catch (ValidatorException $e) {
+            return [
+                'error'=>true,
+                'message'=>$e->getMessageBag()
+            ];
+        }
     }
 
 }
